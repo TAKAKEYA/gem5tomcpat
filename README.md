@@ -1,4 +1,4 @@
-GEM5 Statistics
+From GEM5 Statistics to McPAT inputs
 =====
 
 This repository contains a script to convert [GEM5][gem5] simulation statistics to [McPAT][mcpat] compatible inputs.
@@ -34,7 +34,8 @@ Internals
 The above example uses a template file created by modifying
 ProcessorDescriptionFiles/Xeon.xml from McPAT. The parameters in Xeon.xml that
 should get their value from GEM5 configuration (config.json) should be
-replaced with config.<parameter_path>. For example,  
+replaced with config.<parameter_path>. Please take a look at the
+template-xeon.xml to get the hang of it. For example,  
 `<param name="number_hardware_threads" value="2"/>`  
 should be replaced by  
 `<param name="number_hardware_threads" value="config.system.cpu.numThreads"/>`  
