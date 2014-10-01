@@ -11,14 +11,16 @@ Quick Start
 ----------
 
 Use the following command to invoke the script:
+
 `GEM5ToMcPAT.py [options] <gem5 stats file> <gem5 config file (json)> <mcpat template file>`
 
-For options, Please see:
+For more options, please run:
+
 `GEM5ToMcPAT.py -h`
 
 
 What Else
 --------
-This script is inspired by [m5-mcpat.pl][sicsa] script but implemented in python instead of perl.
+These scripts are inspired by [m5-mcpat.pl][sicsa] script but implemented in python instead of perl.
 
 [sicsa]: https://www.cl.cam.ac.uk/~acr31/sicsa/
