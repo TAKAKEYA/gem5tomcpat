@@ -14,12 +14,28 @@ Use the following command to invoke the script:
 
 `GEM5ToMcPAT.py [options] <gem5 stats file> <gem5 config file (json)> <mcpat template file>`
 
+
 For more options, please run:
 
 `GEM5ToMcPAT.py -h`
 
+Example
+----------
+This repository also contains a sample GEM5 generated stats file, a processor
+configuration file produced by GEM5 run and a McPAT template file. To run
+GEM5ToMcPAT.py use:
 
-What Else
+`GEM5ToMcPAT.py stats.txt config.json template-xeon.xml`
+
+It will produce mcpat-out.xml file. mcpat-out.xml can be used in the usual
+way with McPAT.
+
+`<mcpat-bin> -infile mcpat-out.xml`
+
+Internals
+----------
+
+Miscellaneous
 --------
 These scripts are inspired by [m5-mcpat.pl][sicsa] script but implemented in python instead of perl.
 
