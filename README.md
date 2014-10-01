@@ -30,26 +30,28 @@ way with McPAT.
 
 Internals
 ----------
-h3. Preparing Template File
+###Preparing Template File
 The above example uses a template file created by modifying
 ProcessorDescriptionFiles/Xeon.xml from McPAT. The parameters in Xeon.xml that
 should be replaced with a value from GEM5 configuration (config.json) should be
-replaced with config.<parameter\_path>. For example,  
-<`param name="number_hardware_threads" value="2"/>`  
-should be replaced by  
+replaced with config.<parameter\_path>. For example,
+`<param name="number_hardware_threads" value="2"/>`  
+should be replaced by
 `<param name="number_hardware_threads" value="config.system.cpu.numThreads"/>`  
+in the template file.
+
 Any standard computation in python-supported format is allowed. For example, the
-following is acceptable:  
+following is acceptable:
 `<param name="target_core_clockrate" value="1e-6/config.system.cpu_clk_domain.clock"/><!--MHz -->`  
 
 Similarly, statistic that should be replaced with values from GEM5 statistics
-(stats.txt) should be replacd with stats.<stat\_path>. For example,  
-`<stat name="total_cycles" value="100000"/>`  
+(stats.txt) should be replacd with stats.<stat\_path>. For example,
+`<stat name="total_cycles" value="100000"/>`
 should be replaced by
-`<stat name="total_cycles" value="stats.system.cpu.numCycles"/>`  
+`<stat name="total_cycles" value="stats.system.cpu.numCycles"/>`
 in the template file.
 
-h3. Modifying Script 
+###Modifying Script 
 dumpMcpatOut function in the script is the workhorse. It first replaces all the
 config parameters by using the values from config.json and subsequently works on
 stats parameters.
