@@ -1,4 +1,4 @@
-From GEM5 Statistics to McPAT inputs
+From GEM5 Statistics to McPAT Input
 =====
 
 This repository contains a script to convert [GEM5][gem5] simulation statistics to [McPAT][mcpat] compatible inputs.

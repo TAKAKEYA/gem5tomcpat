@@ -8,7 +8,7 @@
     <param name="number_of_L2s" value="1"/> <!-- This number means how many L2 clusters in each cluster there can be multiple banks/ports -->
     <param name="Private_L2" value="0"/><!--1 Private, 0 shared/coherent -->
     <param name="number_of_L3s" value="0"/> <!-- This number means how many L3 clusters -->
-    <param name="number_of_NoCs" value="1"/>
+    <param name="number_of_NoCs" value="0"/>
     <param name="homogeneous_cores" value="1"/><!--1 means homo -->
     <param name="homogeneous_L2s" value="1"/>
     <param name="homogeneous_L1Directories" value="1"/>
@@ -221,7 +221,7 @@
       <component id="system.core0.icache" name="icache">
         <!-- there is no write requests to itlb although writes happen to it after miss, 
         which is actually a replacement -->
-        <param name="icache_config" value="config.system.cpu.icache.size,config.system.cpu.icache.tags.block_size,config.system.cpu.icache.assoc,1,1,math.ceil(config.system.cpu.icache.response_latency/ config.system.cpu_clk_domain.clock),config.system.cpu.icache.tags.block_size,0"/>
+        <param name="icache_config" value="config.system.cpu.icache.size,config.system.cpu.icache.tags.block_size,config.system.cpu.icache.assoc,1,1,config.system.cpu.icache.response_latency,config.system.cpu.icache.tags.block_size,0"/>
         <!-- the parameters are capacity,block_width, associativity, bank, throughput w.r.t. core clock, latency w.r.t. core clock,output_width, cache policy,  -->
         <!-- cache_policy;//0 no write or write-though with non-write allocate;1 write-back with write-allocate -->
         <param name="buffer_sizes" value="config.system.cpu.icache.mshrs,config.system.cpu.icache.mshrs,config.system.cpu.icache.mshrs,config.system.cpu.icache.mshrs"/>
@@ -238,7 +238,7 @@
       </component>
       <component id="system.core0.dcache" name="dcache">
               <!-- all the buffer related are optional -->
-        <param name="dcache_config" value="config.system.cpu.dcache.size,config.system.cpu.dcache.tags.block_size,config.system.cpu.dcache.assoc,1,1,math.ceil(config.system.cpu.dcache.response_latency/ config.system.cpu_clk_domain.clock),config.system.cpu.dcache.tags.block_size,0"/>
+        <param name="dcache_config" value="config.system.cpu.dcache.size,config.system.cpu.dcache.tags.block_size,config.system.cpu.dcache.assoc,1,1,config.system.cpu.dcache.response_latency,config.system.cpu.dcache.tags.block_size,0"/>
         <param name="buffer_sizes" value="config.system.cpu.dcache.mshrs,config.system.cpu.dcache.mshrs,config.system.cpu.dcache.mshrs,config.system.cpu.dcache.mshrs"/>
         <!-- cache controller buffer sizes: miss_buffer_size(MSHR),fill_buffer_size,prefetch_buffer_size,wb_buffer_size-->  
         <stat name="read_accesses" value="stats.system.cpu.dcache.ReadReq_accesses::total"/>

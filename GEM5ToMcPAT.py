@@ -124,8 +124,8 @@ def readStatsFile(statsFile):
     stats = {}
     if opts.verbose: print "Reading GEM5 stats from: %s" %  statsFile
     F = open(statsFile)
-    ignores = re.compile('^---|^$')
-    statLine = re.compile(r'([a-zA-Z0-9_\.:-]+)\s+([-+]?[0-9]+\.[0-9]+|[0-9]+)')
+    ignores = re.compile(r'^---|^$')
+    statLine = re.compile(r'([a-zA-Z0-9_\.:-]+)\s+([-+]?[0-9]+\.[0-9]+|[0-9]+|nan)')
     count = 0 
     for line in F:
         #ignore empty lines and lines starting with "---"  
@@ -133,6 +133,9 @@ def readStatsFile(statsFile):
             count += 1
             statKind = statLine.match(line).group(1)
             statValue = statLine.match(line).group(2)
+            if statValue == 'nan':
+                print "\tWarning (stats): %s is nan. Setting it to 0" % statKind
+                statValue = '0'
             stats[statKind] = statValue
     F.close()
 
