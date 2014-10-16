@@ -125,7 +125,7 @@ def readStatsFile(statsFile):
     if opts.verbose: print "Reading GEM5 stats from: %s" %  statsFile
     F = open(statsFile)
     ignores = re.compile(r'^---|^$')
-    statLine = re.compile(r'([a-zA-Z0-9_\.:-]+)\s+([-+]?[0-9]+\.[0-9]+|[0-9]+|nan)')
+    statLine = re.compile(r'([a-zA-Z0-9_\.:-]+)\s+([-+]?[0-9]+\.[0-9]+|[-+]?[0-9]+|nan|inf)')
     count = 0 
     for line in F:
         #ignore empty lines and lines starting with "---"  
